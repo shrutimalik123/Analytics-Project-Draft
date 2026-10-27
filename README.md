@@ -3,8 +3,25 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn%20%7C%20Statsmodels-orange.svg)](https://scikit-learn.org/)
+[![Security Audit](https://img.shields.io/badge/Security%20Audit-pip--audit%20Passed-brightgreen.svg)](#-cybersecurity--environment-hardening)
+[![Patched CVEs](https://img.shields.io/badge/CVEs%20Remediated-37%20Packages-blue.svg)](#-cybersecurity--environment-hardening)
 [![License](https://img.shields.io/badge/License-Academic%20Use%20Only-green.svg)](#)
 [![Format](https://img.shields.io/badge/Formatting-APA%207th%20Edition-red.svg)](#)
+
+---
+
+## 🛡️ Cybersecurity & Environment Hardening
+
+The machine learning, data analytics, and Python runtime environment on this system has been audited, patched, and hardened against cybersecurity threats:
+- **Security Audit Tooling:** Integrated `pip-audit` cross-referencing the official PyPI Advisory Database and OSV (Open Source Vulnerabilities).
+- **Vulnerability Remediation:** **37 packages** with known CVEs remediated, resolving Remote Code Execution (RCE), Path Traversal, SSRF, and ReDoS vulnerabilities across LLM, ML, NLP, and API frameworks.
+- **Core Packaging Infrastructure:**
+  - `pip` upgraded to **`26.2.2`**
+  - `setuptools` upgraded to **`84.2.1`** (patched [CVE-2022-40897](https://nvd.nist.gov/vuln/detail/CVE-2022-40897))
+  - `wheel` upgraded to **`0.48.0`**
+- **Formal Security Deliverables:**
+  - 📄 **[CYBERSECURITY_UPDATE_REPORT.md](CYBERSECURITY_UPDATE_REPORT.md)** — Comprehensive Markdown audit report with before-and-after package versions and patched CVE listings.
+  - 📕 **[CYBERSECURITY_UPDATE_REPORT.pdf](CYBERSECURITY_UPDATE_REPORT.pdf)** — Executive PDF report formatted for distribution and compliance records.
 
 ---
 
@@ -133,13 +150,15 @@ Multivariate Logistic Regression parameter estimates ($OR = e^{\beta}$) isolated
 ## 📂 Repository Contents
 
 ```
-anlt5010-week10/
+Analytics-Project-Draft/
 │
+├── CYBERSECURITY_UPDATE_REPORT.pdf                        # Formal Cybersecurity Audit & Threat Remediation Report (PDF)
+├── CYBERSECURITY_UPDATE_REPORT.md                         # Detailed Package Vulnerability & CVE Remediation Matrix
 ├── Vila_Health_Final_Report_Shruti_Malik.pdf             # Complete APA 7th Edition Formal Proposal (PDF)
 ├── Vila_Health_Final_Report.md                            # Complete Markdown Academic Deliverable
 ├── analysis_pipeline.py                                   # End-to-End Python EDA, Modeling & Chart Pipeline
-├── cf_ANLT5010_W10_Penalties_ClarionCourt.csv             # Operational Penalty & Resident Assessment Dataset
-├── cf_ANLT5010_W10_2004ResidentFile_DataDictionary_...pdf # NNHS 2004 Standardized Data Dictionary
+├── data_profiling.py                                      # Dataset Diagnostic & Profiling Engine
+├── generate_report.py                                     # Automated Report Generation Script
 │
 ├── figures/                                               # High-Resolution Publication Visualizations
 │   ├── figure1_fines_by_deficiency.png                    # Pareto Deficiency Breakdown & Monetary Fines
@@ -155,18 +174,21 @@ anlt5010-week10/
 ## 🚀 Reproduction & Execution Guide
 
 ### Prerequisites
-- Python 3.9 or higher
-- Required packages: `numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `statsmodels`
+- Python 3.11 (or 3.9+)
+- Required packages: `numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `statsmodels`, `pip-audit`
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/shrutimalik123/anlt5010-week10.git
-cd anlt5010-week10
+git clone https://github.com/shrutimalik123/Analytics-Project-Draft.git
+cd Analytics-Project-Draft
 
 # 2. Install required dependencies
-pip install numpy pandas matplotlib seaborn scikit-learn statsmodels
+pip install numpy pandas matplotlib seaborn scikit-learn statsmodels pip-audit
 
-# 3. Execute the full analytics and machine learning pipeline
+# 3. Verify environment security status with pip-audit
+python -m pip_audit
+
+# 4. Execute the full analytics and machine learning pipeline
 python analysis_pipeline.py
 ```
 
